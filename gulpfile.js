@@ -10,7 +10,7 @@ const browserSync = require("browser-sync").create(); //https://browsersync.io/d
 const nunjucksRender = require("gulp-nunjucks-render");
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
-
+const clean = require('gulp-clean');
 // /*
 // TOP LEVEL FUNCTIONS
 //     gulp.task = Define tasks
@@ -106,7 +106,7 @@ function nunjucks(cb) {
     gulp.src("src/pages/*.html")
         .pipe(
             nunjucksRender({
-                path: ["src/templates/"] // String or Array
+                path: ["src/templates/","src/templates/header","src/templates/footer","src/templates/block"]  // String or Array
             })
         )
         .pipe(gulp.dest("dist/pages"));
@@ -117,7 +117,7 @@ function nunjucksMinify(cb) {
     gulp.src("src/pages/*.html")
         .pipe(
             nunjucksRender({
-                path: ["src/templates/"] // String or Array
+                path: ["src/templates/","src/templates/header","src/templates/footer","src/templates/block"]  // String or Array
             })
         )
         .pipe(
@@ -129,6 +129,15 @@ function nunjucksMinify(cb) {
     cb();
 }
 
+//Clean Files
+function remove_files(cb){
+    gulp.src('dist').pipe(clean());
+    cb();
+}
+
+//List file
+
+
 // Watch Files
 function watch_files() {
     browserSync.init({
@@ -139,7 +148,7 @@ function watch_files() {
     gulp.watch("src/assets/sass/**/*.scss", css);
     gulp.watch("src/assets/js/*.js", js).on("change", browserSync.reload);
     gulp.watch("src/pages/*.html", nunjucks).on("change", browserSync.reload);
-    gulp.watch("src/templates/*.html", nunjucks).on(
+    gulp.watch("src/templates/**/*.html", nunjucks).on(
         "change",
         browserSync.reload
     );
@@ -150,3 +159,5 @@ exports.default = series(nunjucks, css, bootstrap, copyCSS, copyJS, js, copyImag
 
 // 'gulp build' will build all assets but not run on a local server.
 exports.build = parallel(nunjucksMinify, css, bootstrap, copyCSS, copyJS, js, copyImage, imageMin);
+
+exports.del = parallel(remove_files);
