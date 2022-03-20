@@ -146,6 +146,7 @@ function watch_files() {
         }
     });
     gulp.watch("src/assets/sass/**/*.scss", css);
+    gulp.watch("src/assets/sass/vendors/bootstrap/*.scss", bootstrap);
     gulp.watch("src/assets/js/*.js", js).on("change", browserSync.reload);
     gulp.watch("src/pages/*.html", nunjucks).on("change", browserSync.reload);
     gulp.watch("src/templates/**/*.html", nunjucks).on(
