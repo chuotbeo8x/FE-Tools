@@ -10,7 +10,7 @@ const browserSync = require("browser-sync").create(); //https://browsersync.io/d
 const nunjucksRender = require("gulp-nunjucks-render");
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
-
+const clean = require('gulp-clean');
 // /*
 // TOP LEVEL FUNCTIONS
 //     gulp.task = Define tasks
@@ -129,11 +129,20 @@ function nunjucksMinify(cb) {
     cb();
 }
 
+//Clean Files
+function remove_files(cb){
+    gulp.src('dist').pipe(clean());
+    cb();
+}
+
+//List file
+
+
 // Watch Files
 function watch_files() {
     browserSync.init({
         server: {
-            baseDir: "dist/pages"
+            baseDir: "dist"
         }
     });
     gulp.watch("src/assets/sass/**/*.scss", css);
@@ -150,3 +159,5 @@ exports.default = series(nunjucks, css, bootstrap, copyCSS, copyJS, js, copyImag
 
 // 'gulp build' will build all assets but not run on a local server.
 exports.build = parallel(nunjucksMinify, css, bootstrap, copyCSS, copyJS, js, copyImage, imageMin);
+
+exports.del = parallel(remove_files);
