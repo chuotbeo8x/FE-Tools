@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <base href="../.">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SDK Components</title>
+    <link rel="stylesheet" href="css/vendors/bootstrap/bootstrap.css">
+    <style>
+        .code-container {
+            background-color: rgba(243, 243, 243, 0.63);
+            position: relative;
+        }
+        .code-copy {
+            display: inline-block;
+            position: absolute;
+            top: 20px; right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Component SDK</h1>
+        </div>
+        <div class="col-12">
+            <div class="card code-container">
+                <button type="button" class="btn btn-light btn-sm code-copy" data-toggle="tooltip" data-placement="bottom" title="Copy code HTML">Copy</button>
+                <div class="card-body">
+                <!-- begin -->
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-secondary">Secondary</button>
+                <button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-danger">Danger</button>
+                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" class="btn btn-info">Info</button>
+                <button type="button" class="btn btn-light">Light</button>
+                <button type="button" class="btn btn-dark">Dark</button>
+                
+                <button type="button" class="btn btn-link">Link</button>
+                <!-- end -->
+                </div>
+            </div>
+
+<textarea class="form-control text-left">
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
+
+<button type="button" class="btn btn-link">Link</button>
+</textarea>
+        </div>
+        <div class="col-12">
+            <div class="card code-container">
+                <button type="button" class="btn btn-light btn-sm code-copy" data-toggle="tooltip" data-placement="bottom" title="Copy code HTML">Copy</button>
+                <div class="card-body">
+                <!-- begin -->
+dsdsd
+                <!-- end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/vendors/jquery/jquery-3.6.0.min.js"></script>
+<script src="js/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="js/vendors/clipboardjs/clipboard.min.js"></script>
+<script src="js/vendors/autosize/autosize.min.js"></script>
+<script>
+    autosize(document.querySelectorAll('textarea'));
+  
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    new ClipboardJS('.copy', {
+    text: function(trigger) {
+        elem = $(trigger).data('clipboard-element');
+        var htmlBlock = document.querySelector(elem);
+        return htmlBlock.innerHTML;
+    }
+});
+</script>
+
+</html>
