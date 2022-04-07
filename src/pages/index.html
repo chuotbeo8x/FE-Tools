@@ -1,3 +1,7 @@
+{% set title = 'home' %}
+{% set body_class = '' %}
+{% set base_href = '../.' %}
+
 {% extends "base.html" %}
 
 {% block content %}
@@ -6,10 +10,16 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Hello World!</h1>
+            <h1>Hello World! dsd</h1>
         </div>
     </div>
 </div>
 
 {% include "footer.html" %}
+{% endblock %}
+{% block custom_js %}
+
+{% endblock %}
+{% block custom_modal %}
+
 {% endblock %}

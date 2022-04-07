@@ -1,94 +1,268 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <base href="../.">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>SDK Components</title>
-    <link rel="stylesheet" href="css/vendors/bootstrap/bootstrap.css">
-    <style>
-        .code-container {
-            background-color: rgba(243, 243, 243, 0.63);
-            position: relative;
-        }
-        .code-copy {
-            display: inline-block;
-            position: absolute;
-            top: 20px; right: 20px;
-        }
-    </style>
+  <base href="../." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>SDK Components</title>
+  <link rel="stylesheet" href="css/vendors/bootstrap/bootstrap.css" />
+  <style>
+    .code-container {
+      background-color: rgba(243, 243, 243, 0.63);
+      position: relative;
+      padding: 5px;
+    }
+
+    .code-copy {
+      display: inline-block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .code-example {
+      padding: 24px;
+      background-color: #ffffff;
+    }
+
+    .code-hint {
+      font-family: monospace;
+      border: none;
+      width: 100%;
+      background-color: transparent;
+      position: relative;
+    }
+
+    .code-hint .form-control {
+      background-color: transparent;
+    }
+  </style>
 </head>
 
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1>Component SDK</h1>
+  <div class="container">
+    <div class="row mb-3">
+      <div class="col-12">
+        <div class="code-container">
+          <div class="code-example">
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                  else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+          <div class="code-hint">
+            <clipboard-copy class="code-copy" for="name"> Copy<span class="notice" hidden>Copied!</span>
+            </clipboard-copy>
+            <textarea class="form-control" id="name">
+            <!-- begin -->
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                  else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <!-- end -->
+          </textarea>
+          </div>
         </div>
-        <div class="col-12">
-            <div class="card code-container">
-                <button type="button" class="btn btn-light btn-sm code-copy" data-toggle="tooltip" data-placement="bottom" title="Copy code HTML">Copy</button>
-                <div class="card-body">
-                <!-- begin -->
-                <button type="button" class="btn btn-primary">Primary</button>
-                <button type="button" class="btn btn-secondary">Secondary</button>
-                <button type="button" class="btn btn-success">Success</button>
-                <button type="button" class="btn btn-danger">Danger</button>
-                <button type="button" class="btn btn-warning">Warning</button>
-                <button type="button" class="btn btn-info">Info</button>
-                <button type="button" class="btn btn-light">Light</button>
-                <button type="button" class="btn btn-dark">Dark</button>
-                
-                <button type="button" class="btn btn-link">Link</button>
-                <!-- end -->
-                </div>
-            </div>
-
-<textarea class="form-control text-left">
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
-
-<button type="button" class="btn btn-link">Link</button>
-</textarea>
-        </div>
-        <div class="col-12">
-            <div class="card code-container">
-                <button type="button" class="btn btn-light btn-sm code-copy" data-toggle="tooltip" data-placement="bottom" title="Copy code HTML">Copy</button>
-                <div class="card-body">
-                <!-- begin -->
-dsdsd
-                <!-- end -->
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-</div>
+  </div>
 </body>
 <script src="js/vendors/jquery/jquery-3.6.0.min.js"></script>
 <script src="js/vendors/bootstrap/bootstrap.bundle.min.js"></script>
-<script src="js/vendors/clipboardjs/clipboard.min.js"></script>
 <script src="js/vendors/autosize/autosize.min.js"></script>
 <script>
-    autosize(document.querySelectorAll('textarea'));
-  
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-    new ClipboardJS('.copy', {
-    text: function(trigger) {
-        elem = $(trigger).data('clipboard-element');
-        var htmlBlock = document.querySelector(elem);
-        return htmlBlock.innerHTML;
+  (function (global, factory) {
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+      typeof define === 'function' && define.amd ? define(factory) :
+      (global = global || self, global.ClipboardCopyElement = factory());
+  }(this, function () {
+    'use strict';
+
+    function createNode(text) {
+      const node = document.createElement('pre');
+      node.style.width = '1px';
+      node.style.height = '1px';
+      node.style.position = 'fixed';
+      node.style.top = '5px';
+      node.textContent = text;
+      return node;
     }
-});
+
+    function copyNode(node) {
+      if ('clipboard' in navigator) {
+        // eslint-disable-next-line flowtype/no-flow-fix-me-comments
+        // $FlowFixMe Clipboard is not defined in Flow yet.
+        return navigator.clipboard.writeText(node.textContent);
+      }
+
+      const selection = getSelection();
+
+      if (selection == null) {
+        return Promise.reject(new Error());
+      }
+
+      selection.removeAllRanges();
+      const range = document.createRange();
+      range.selectNodeContents(node);
+      selection.addRange(range);
+      document.execCommand('copy');
+      selection.removeAllRanges();
+      return Promise.resolve();
+    }
+
+    function copyText(text) {
+      if ('clipboard' in navigator) {
+        // eslint-disable-next-line flowtype/no-flow-fix-me-comments
+        // $FlowFixMe Clipboard is not defined in Flow yet.
+        return navigator.clipboard.writeText(text);
+      }
+
+      const body = document.body;
+
+      if (!body) {
+        return Promise.reject(new Error());
+      }
+
+      const node = createNode(text);
+      body.appendChild(node);
+      copyNode(node);
+      body.removeChild(node);
+      return Promise.resolve();
+    }
+
+    function copy(button) {
+      const id = button.getAttribute('for');
+      const text = button.getAttribute('value');
+
+      function trigger() {
+        button.dispatchEvent(new CustomEvent('clipboard-copy', {
+          bubbles: true
+        }));
+      }
+
+      if (text) {
+        copyText(text).then(trigger);
+      } else if (id) {
+        const root = 'getRootNode' in Element.prototype ? button.getRootNode() : button.ownerDocument;
+        if (!(root instanceof Document || 'ShadowRoot' in window && root instanceof ShadowRoot)) return;
+        const node = root.getElementById(id);
+        if (node) copyTarget(node).then(trigger);
+      }
+    }
+
+    function copyTarget(content) {
+      if (content instanceof HTMLInputElement || content instanceof HTMLTextAreaElement) {
+        return copyText(content.value);
+      } else if (content instanceof HTMLAnchorElement && content.hasAttribute('href')) {
+        return copyText(content.href);
+      } else {
+        return copyNode(content);
+      }
+    }
+
+    function clicked(event) {
+      const button = event.currentTarget;
+
+      if (button instanceof HTMLElement) {
+        copy(button);
+      }
+    }
+
+    function keydown(event) {
+      if (event.key === ' ' || event.key === 'Enter') {
+        const button = event.currentTarget;
+
+        if (button instanceof HTMLElement) {
+          event.preventDefault();
+          copy(button);
+        }
+      }
+    }
+
+    function focused(event) {
+      event.currentTarget.addEventListener('keydown', keydown);
+    }
+
+    function blurred(event) {
+      event.currentTarget.removeEventListener('keydown', keydown);
+    }
+
+    class ClipboardCopyElement extends HTMLElement {
+      constructor() {
+        super();
+        this.addEventListener('click', clicked);
+        this.addEventListener('focus', focused);
+        this.addEventListener('blur', blurred);
+      }
+
+      connectedCallback() {
+        if (!this.hasAttribute('tabindex')) {
+          this.setAttribute('tabindex', '0');
+        }
+
+        if (!this.hasAttribute('role')) {
+          this.setAttribute('role', 'button');
+        }
+      }
+
+      get value() {
+        return this.getAttribute('value') || '';
+      }
+
+      set value(text) {
+        this.setAttribute('value', text);
+      }
+
+    }
+
+    if (!window.customElements.get('clipboard-copy')) {
+      window.ClipboardCopyElement = ClipboardCopyElement;
+      window.customElements.define('clipboard-copy', ClipboardCopyElement);
+    }
+
+    return ClipboardCopyElement;
+
+  }));
+</script>
+<script>
+  autosize(document.querySelectorAll("textarea"));
+</script>
+<script>
+  document.addEventListener('clipboard-copy', function (event) {
+    const notice = event.target.querySelector('.notice')
+    notice.hidden = false
+    setTimeout(function () {
+      notice.hidden = true
+    }, 1000)
+  })
 </script>
 
 </html>

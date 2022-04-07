@@ -162,3 +162,4 @@ exports.default = series(nunjucks, css, bootstrap, copyCSS, copyJS, js, copyImag
 exports.build = parallel(nunjucksMinify, css, bootstrap, copyCSS, copyJS, js, copyImage, imageMin);
 
 exports.del = parallel(remove_files);
+
