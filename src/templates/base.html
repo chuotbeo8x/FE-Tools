@@ -9,10 +9,15 @@
     <title>Gulp Boilerplate | Gulp</title>
     {% include "css_config.html" %}
 </head>
-
-<body>
+<header>
+    {% include "header.html" %}
+</header>
+<body class="">
     {% block content %}{% endblock %}
 </body>
+<footer>
+    {% include "footer.html" %}
+</footer>
 {% include "js_config.html" %}
 
 </html>

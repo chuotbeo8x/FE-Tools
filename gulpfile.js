@@ -52,7 +52,7 @@ function js(cb) {
         .pipe(babel({
             presets: ['@babel/preset-env']
         }))
-        .pipe(concat("main.js"))
+        .pipe(concat("custom.js"))
         .pipe(uglify())
         .pipe(gulp.dest("dist/js"));
     cb();
@@ -103,10 +103,10 @@ function copyImage(cb) {
 
 // Process Nunjucks
 function nunjucks(cb) {
-    gulp.src("src/pages/*.html")
+    gulp.src("src/pages/**/*.html")
         .pipe(
             nunjucksRender({
-                path: ["src/templates/","src/templates/header","src/templates/footer","src/templates/block"]  // String or Array
+                path: ["src/templates/","src/templates/header","src/templates/footer","src/templates/block","src/templates/modal","src/templates/dialog"]  // String or Array
             })
         )
         .pipe(gulp.dest("dist/pages"));
@@ -114,10 +114,10 @@ function nunjucks(cb) {
 }
 
 function nunjucksMinify(cb) {
-    gulp.src("src/pages/*.html")
+    gulp.src("src/pages/**/*.html")
         .pipe(
             nunjucksRender({
-                path: ["src/templates/","src/templates/header","src/templates/footer","src/templates/block"]  // String or Array
+                path: ["src/templates/","src/templates/header","src/templates/footer","src/templates/block","src/templates/modal","src/templates/dialog"]  // String or Array
             })
         )
         .pipe(
@@ -142,12 +142,13 @@ function remove_files(cb){
 function watch_files() {
     browserSync.init({
         server: {
-            baseDir: "dist/pages"
+            baseDir: "dist"
         }
     });
     gulp.watch("src/assets/sass/**/*.scss", css);
+    gulp.watch("src/assets/sass/vendors/bootstrap/*.scss", bootstrap);
     gulp.watch("src/assets/js/*.js", js).on("change", browserSync.reload);
-    gulp.watch("src/pages/*.html", nunjucks).on("change", browserSync.reload);
+    gulp.watch("src/pages/**/*.html", nunjucks).on("change", browserSync.reload);
     gulp.watch("src/templates/**/*.html", nunjucks).on(
         "change",
         browserSync.reload
@@ -161,3 +162,4 @@ exports.default = series(nunjucks, css, bootstrap, copyCSS, copyJS, js, copyImag
 exports.build = parallel(nunjucksMinify, css, bootstrap, copyCSS, copyJS, js, copyImage, imageMin);
 
 exports.del = parallel(remove_files);
+
