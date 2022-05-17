@@ -2,22 +2,27 @@
 <html lang="en">
 
 <head>
-    <base href="../.">
+    <base href="{{ base_href }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Gulp Boilerplate | Gulp</title>
+    <title>{{ title }}</title>
     {% include "css_config.html" %}
 </head>
 <header>
     {% include "header.html" %}
 </header>
 <body class="">
+=======
+
+<body class="{{ body_class }}">
     {% block content %}{% endblock %}
 </body>
 <footer>
     {% include "footer.html" %}
 </footer>
 {% include "js_config.html" %}
+{% block custom_js %}{% endblock %}
+{% block custom_modal %}{% endblock %}
 
 </html>

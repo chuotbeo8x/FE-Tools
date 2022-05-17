@@ -1,3 +1,5 @@
+//RFS
+@import "./base/rfs";
 // Base
 @import "./base/variables";
 @import "./base/base";
@@ -5,3 +7,8 @@
 // Components
 @import "./components/nav";
 @import "./components/main-content";
+
+
+h1.test {
+      @include rfs(21px);
+}
