@@ -8,7 +8,7 @@
 // scss-docs-start import-stack
 // Configuration
 @import "functions";
-@import "variables";
+@import "../../base/variables.scss";
 @import "maps";
 @import "mixins";
 @import "utilities";
