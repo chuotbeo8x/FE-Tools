@@ -1,0 +1,11 @@
+<!-- Offcanvas -->
+<div class="offcanvas offcanvas{{ offcanvas_position }} offcanvas{{ offcanvas_size }} {{ offcanvas_class }}"
+    tabindex="-1" id="{{ offcanvas_id }}" aria-labelledby="{{ offcanvas_id }}Label">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="{{ offcanvas_id }}Label">{{ offcanvas_title }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        {% block offcanvas_body %}{% endblock %}
+    </div>
+</div>

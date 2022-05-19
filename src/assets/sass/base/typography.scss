@@ -1,0 +1,74 @@
+body {
+    font: 100% Inter, "SF Pro Display", "Helvetica Neue", Helvetica, Roboto, Arial;
+    font-size: 14px;
+    line-height: 20px;
+    color: $text-primary;
+}
+
+.text-body-medium {
+    @include rfs($fz14);
+    line-height: $lh20;
+    font-weight: $fw500;
+}
+
+.text-body-large {
+    @include rfs($fz16);
+    line-height: $lh24;
+    font-weight: $fw400;
+}
+
+.text-list-form {
+    @include rfs($fz16);
+    line-height: $lh24;
+    font-weight: $fw400;
+    color:$text-secondary;
+}
+
+.text-list-form-disabled {
+    @include rfs($fz16);
+    line-height: $lh24;
+    font-weight: $fw400;
+    color:$disable;
+}
+
+.text-note {
+    @include rfs($fz12);
+    line-height: $lh16;
+    font-weight: $fw500;
+}
+
+.title-small {
+    @include rfs($fz14);
+    line-height: $lh20;
+    font-weight: $fw500;
+}
+
+.title-medium {
+    @include rfs($fz16);
+    line-height: $lh24;
+    font-weight: $fw500;
+}
+
+.title-large {
+    @include rfs($fz20);
+    line-height: $lh26;
+    font-weight: $fw500;
+}
+
+.title-xlarge {
+    @include rfs($fz24);
+    line-height: $lh32;
+    font-weight: $fw500;
+}
+
+.text-regular {
+    font-weight: $fw400;
+}
+
+.text-medium {
+    font-weight: $fw500;
+}
+
+.fz14 {
+    font-size: $fz14;
+}

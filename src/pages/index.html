@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% set title = '' %}
+{% set base_href = '../.' %}
+{% set body_class = '' %}
+{% set header_class = '' %}
+{% set footer_class = '' %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block header %}
+{% include "header-child.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            Hello World!!!
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% include "footer-child.html" %}
+{% endblock %}
+
+{% block custom_js %}
+
+
+{% endblock %}
+
+{% block custom_modal %}
+{% include "modal-child.html" %}
+
+{% endblock %}
+
+{% block custom_dialog %}
+{% include "dialog-child.html" %}
+
+{% endblock %}

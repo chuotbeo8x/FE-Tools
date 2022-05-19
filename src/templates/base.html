@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <base href="{{ base_href }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{{ title }}</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="text/html" href="media/icons/favicon.svg">
+    {% include "css_config.html" %}
+    {% block custom_css %}{% endblock %}
+</head>
+
+<header class="{{ header_class }}">
+    {% block header %}{% endblock %}
+</header>
+
+<body class="{{ body_class }}">
+    {% block content %}{% endblock %}
+</body>
+
+<footer class="{{ footer_class }}">
+    {% block footer %}{% endblock %}
+</footer>
+
+{% include "js_config.html" %}
+<!-- custom js -->
+<script src="js/custom.js"></script>
+{% block custom_js %}{% endblock %}
+{% block custom_modal %}{% endblock %}
+{% block custom_dialog %}{% endblock %}
+
+</html>
