@@ -6,7 +6,9 @@
             <div class="modal-body">
                 <h5 class="modal-title" id="{{ dialog_id }}Label">{{ modal_title }}</h5>
                 {% block dialog_body %}{% endblock %}
-                {% block dialog_footer %}{% endblock %}
+                <div class="d-flex">
+                    {% block dialog_footer %}{% endblock %}
+                </div>                
             </div>
         </div>
     </div>
