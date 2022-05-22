@@ -2,9 +2,17 @@
 {% set offcanvas_id = 'menu_dev' %}
 {% set offcanvas_class = '' %}
 {% set offcanvas_position = '-end' %} {# -top, -end for right, -bottom, -start for left #}
-{% set offcanvas_title = 'sfsdfsdfdsf' %}
+{% set offcanvas_title = 'Main Menu' %}
 
 
 {% block offcanvas_body %}
-fsdfsdfsdfsdfsdfsdf
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active">
+        The current link item
+    </a>
+    <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+    <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+    <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+    <a class="list-group-item list-group-item-action disabled">A disabled link item</a>
+</div>
 {% endblock %}
