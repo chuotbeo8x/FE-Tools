@@ -1,0 +1,11 @@
+{% extends "dialog.html" %}
+{% set dialog_id = '' %}
+{% set dialog_class = '' %}
+{% set dialog_title = 'Tiêu đề' %}
+{% set dialog_button_primary = '' %}
+
+
+{% block dialog_body %}{% endblock %}
+{% block dialog_footer %}
+<button type="button" class="btn btn-primary" data-bs-dismiss="modal">{{ dialog_button_primary }}</button>
+{% endblock %}

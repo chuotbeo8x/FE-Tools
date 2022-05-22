@@ -90,14 +90,25 @@ function copyCSS(cb) {
     gulp.src("src/assets/vendors/**/*.css").pipe(gulp.dest("dist/css/vendors"));
     cb();
 }
+
 // Copy all JS files to Dist
 function copyJS(cb) {
     gulp.src("src/assets/vendors/**/*.js").pipe(gulp.dest("dist/js/vendors"));
     cb();
 }
+
+// Copy all Data files to Dist
+function copyDataJson(cb) {
+    gulp.src("src/data/*.json").pipe(gulp.dest("dist/data"))
+    // Stream changes to all browsers
+    .pipe(browserSync.stream());
+    cb();
+}
 // Copy all Image files to Dist
 function copyImage(cb) {
-    gulp.src("src/assets/media/**/*").pipe(gulp.dest("dist/media/"));
+    gulp.src("src/assets/media/**/*").pipe(gulp.dest("dist/media/"))
+    // Stream changes to all browsers
+    .pipe(browserSync.stream());
     cb();
 }
 
@@ -106,10 +117,20 @@ function nunjucks(cb) {
     gulp.src("src/pages/**/*.html")
         .pipe(
             nunjucksRender({
-                path: ["src/templates/","src/templates/header","src/templates/footer","src/templates/block","src/templates/modal","src/templates/dialog","src/templates/offcanvas"]  // String or Array
+                path: ["src/templates/","src/templates/header","src/templates/footer","src/templates/block","src/templates/modal","src/templates/dialog","src/templates/offcanvas","src/components/","src/components/header","src/components/footer","src/components/block","src/components/modal","src/components/dialog","src/components/offcanvas"]  // String or Array
             })
         )
         .pipe(gulp.dest("dist/pages"));
+    cb();
+}
+function nunjucksdev(cb) {
+    gulp.src("src/components/*.html")
+        .pipe(
+            nunjucksRender({
+                path: ["src/components/","src/components/header","src/components/footer","src/components/block","src/components/modal","src/components/dialog","src/components/offcanvas"]  // String or Array
+            })
+        )
+        .pipe(gulp.dest("dist/components"));
     cb();
 }
 
@@ -117,7 +138,7 @@ function nunjucksMinify(cb) {
     gulp.src("src/pages/**/*.html")
         .pipe(
             nunjucksRender({
-                path: ["src/templates/","src/templates/header","src/templates/footer","src/templates/block","src/templates/modal","src/templates/dialog","src/templates/offcanvas"]  // String or Array
+                path: ["src/templates/","src/templates/header","src/templates/footer","src/templates/block","src/templates/modal","src/templates/dialog","src/templates/offcanvas","src/components/","src/components/header","src/components/footer","src/components/block","src/components/modal","src/components/dialog","src/components/offcanvas"]  // String or Array
             })
         )
         .pipe(
@@ -147,19 +168,36 @@ function watch_files() {
     });
     gulp.watch("src/assets/sass/**/*.scss", css);
     gulp.watch("src/assets/sass/vendors/bootstrap/*.scss", bootstrap);
+    gulp.watch("src/assets/media/**/*", copyImage).on("change", browserSync.reload);
+    gulp.watch("src/data/*.json", copyDataJson).on("change", browserSync.reload);
     gulp.watch("src/assets/js/dev/*.js", js).on("change", browserSync.reload);
     gulp.watch("src/pages/**/*.html", nunjucks).on("change", browserSync.reload);
+    gulp.watch("src/components/**/*.html", nunjucksdev).on("change", browserSync.reload);
     gulp.watch("src/templates/**/*.html", nunjucks).on(
         "change",
         browserSync.reload
     );
 }
+function watch_files_dev() {
+    browserSync.init({
+        server: {
+            baseDir: "dist"
+        }
+    });
+    gulp.watch("src/assets/sass/**/*.scss", css);
+    gulp.watch("src/assets/sass/vendors/bootstrap/*.scss", bootstrap);
+    gulp.watch("src/assets/media/**/*", copyImage).on("change", browserSync.reload);
+    gulp.watch("src/data/*.json", copyDataJson).on("change", browserSync.reload);
+    gulp.watch("src/assets/js/dev/*.js", js).on("change", browserSync.reload);
+    gulp.watch("src/components/**/*.html", nunjucksdev).on("change", browserSync.reload);
+}
 
 // Default 'gulp' command with start local server and watch files for changes.
-exports.default = series(nunjucks, css, bootstrap, copyCSS, copyJS, js, copyImage, imageMin, watch_files);
+exports.default = series(nunjucks, css, bootstrap, copyCSS, copyJS, copyDataJson, js, copyImage, imageMin, watch_files);
+exports.dev = series(nunjucksdev, css, bootstrap, copyCSS, copyJS, copyDataJson, js, copyImage, imageMin, watch_files_dev);
 
 // 'gulp build' will build all assets but not run on a local server.
-exports.build = parallel(nunjucksMinify, css, bootstrap, copyCSS, copyJS, js, copyImage, imageMin);
+exports.build = parallel(nunjucksMinify, css, bootstrap, copyCSS, copyJS, copyDataJson, js, copyImage, imageMin);
 
 exports.del = parallel(remove_files);
 

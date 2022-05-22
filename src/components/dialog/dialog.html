@@ -1,0 +1,15 @@
+<!-- Dialog -->
+<div class="{{ dialog_class }}" id="{{ dialog_id }}" tabindex="-1" aria-labelledby="{{ dialog_id }}Label"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h5 class="modal-title" id="{{ dialog_id }}Label">{{ dialog_title }}</h5>
+                {% block dialog_body %}{% endblock %}
+                <div class="d-flex">
+                     {% block dialog_footer %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
