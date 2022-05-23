@@ -1,0 +1,174 @@
+<div class="row g-4">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <h1>h1. Lorem ipsum dolor</h1>
+        <h2>h2. Lorem ipsum dolor</h2>
+        <h3>h3. Lorem ipsum dolor</h3>
+        <h4>h4. Lorem ipsum dolor</h4>
+        <h5>h5. Lorem ipsum dolor</h5>
+        <h6>h6. Lorem ipsum dolor</h6>
+      </div>
+      <div
+        class="card-footer d-flex align-items-center justify-content-between"
+      >
+        HTML
+        <button
+          type="button"
+          class="btn btn-light p-0 bi bi-clipboard"
+          data-clipboard-target="#code2"
+        ></button>
+      </div>
+      <hr class="m-0" />
+      {% set code_html %}
+      <h1>h1. Lorem ipsum dolor</h1>
+      <h2>h2. Lorem ipsum dolor</h2>
+      <h3>h3. Lorem ipsum dolor</h3>
+      <h4>h4. Lorem ipsum dolor</h4>
+      <h5>h5. Lorem ipsum dolor</h5>
+      <h6>h6. Lorem ipsum dolor</h6>
+      {% endset %}
+      <pre
+        class="m-0 bg-light snippet"
+        id="code2"
+      ><code class="language-html">{{ code_html }}</code></pre>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <p class="h1">h1. Lorem ipsum dolor</p>
+        <p class="h2">h2. Lorem ipsum dolor</p>
+        <p class="h3">h3. Lorem ipsum dolor</p>
+        <p class="h4">h4. Lorem ipsum dolor</p>
+        <p class="h5">h5. Lorem ipsum dolor</p>
+        <p class="h6">h6. Lorem ipsum dolor</p>
+      </div>
+      <div
+        class="card-footer d-flex align-items-center justify-content-between"
+      >
+        HTML
+        <button
+          type="button"
+          class="btn btn-light btn-clipboard"
+          data-clipboard-action="copy"
+          copy-data-target=""
+        >
+          <i class="bi bi-clipboard"></i>
+        </button>
+      </div>
+      <hr class="m-0" />
+      {% set code_html -%}
+      <p class="h1">h1. Lorem ipsum dolor</p>
+      <p class="h2">h2. Lorem ipsum dolor</p>
+      <p class="h3">h3. Lorem ipsum dolor</p>
+      <p class="h4">h4. Lorem ipsum dolor</p>
+      <p class="h5">h5. Lorem ipsum dolor</p>
+      <p class="h6">h6. Lorem ipsum dolor</p>
+      {%- endset %}
+      <pre
+        class="m-0 bg-light"
+      ><code class="language-html">{{ code_html }}</code></pre>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="display-1">Display 1</h1>
+        <h1 class="display-2">Display 2</h1>
+        <h1 class="display-3">Display 3</h1>
+        <h1 class="display-4">Display 4</h1>
+        <h1 class="display-5">Display 5</h1>
+        <h1 class="display-6">Display 6</h1>
+      </div>
+      <div
+        class="card-footer d-flex align-items-center justify-content-between"
+      >
+        HTML
+        <button
+          type="button"
+          class="btn btn-light"
+          data-clipboard-action="copy"
+          copy-data-target=""
+        >
+          <i class="bi bi-clipboard"></i>
+        </button>
+      </div>
+      <hr class="m-0" />
+      <div class="card-body bg-light">
+        {% set code_html %}
+        <h1 class="display-1">Display 1</h1>
+        <h1 class="display-2">Display 2</h1>
+        <h1 class="display-3">Display 3</h1>
+        <h1 class="display-4">Display 4</h1>
+        <h1 class="display-5">Display 5</h1>
+        <h1 class="display-6">Display 6</h1>
+        {% endset %}
+        <pre>{{ code_html }}</pre>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+        <p>
+          <del>This line of text is meant to be treated as deleted text.</del>
+        </p>
+        <p>
+          <s>This line of text is meant to be treated as no longer accurate.</s>
+        </p>
+        <p>
+          <ins
+            >This line of text is meant to be treated as an addition to the
+            document.</ins
+          >
+        </p>
+        <p><u>This line of text will render as underlined.</u></p>
+        <p>
+          <small>This line of text is meant to be treated as fine print.</small>
+        </p>
+        <p><strong>This line rendered as bold text.</strong></p>
+        <p><em>This line rendered as italicized text.</em></p>
+      </div>
+      <div
+        class="card-footer d-flex align-items-center justify-content-between"
+      >
+        HTML
+        <button
+          type="button"
+          class="btn btn-light btn-clipboard"
+          data-clipboard-action="copy"
+          copy-data-target=""
+        >
+          <i class="bi bi-clipboard"></i>
+        </button>
+      </div>
+      <hr class="m-0" />
+      <div class="card-body bg-light">
+        {% set code_html %}
+        <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+        <p>
+          <del>This line of text is meant to be treated as deleted text.</del>
+        </p>
+        <p>
+          <s>This line of text is meant to be treated as no longer accurate.</s>
+        </p>
+        <p>
+          <ins
+            >This line of text is meant to be treated as an addition to the
+            document.</ins
+          >
+        </p>
+        <p><u>This line of text will render as underlined.</u></p>
+        <p>
+          <small>This line of text is meant to be treated as fine print.</small>
+        </p>
+        <p><strong>This line rendered as bold text.</strong></p>
+        <p><em>This line rendered as italicized text.</em></p>
+        {% endset %}
+        <pre>{{ code_html }}</pre>
+      </div>
+    </div>
+  </div>
+</div>
