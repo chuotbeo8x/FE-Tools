@@ -11,6 +11,8 @@ const nunjucksRender = require("gulp-nunjucks-render");
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
 const clean = require('gulp-clean');
+const cssimage = require("gulp-css-image");
+const removeAttributes = require('gulp-css-remove-attributes');
 // /*
 // TOP LEVEL FUNCTIONS
 //     gulp.task = Define tasks
@@ -18,6 +20,17 @@ const clean = require('gulp-clean');
 //     gulp.dest = Points to the folder to output
 //     gulp.watch = Watch files and folders for changes
 // */
+function cssImage() {
+  return gulp.src(`src/assets/media/icons/*`)
+    .pipe(cssimage({
+      prefix: "",
+      root: "../media/icons/",
+      name: "_list_icon.scss"
+    }))
+    //remove width height if needed
+    .pipe(removeAttributes(['background-size', 'width', 'height']))
+    .pipe(gulp.dest(`src/assets/sass/components/`))
+}
 
 // Optimise Images
 function imageMin(cb) {
@@ -198,6 +211,6 @@ exports.dev = series(nunjucksdev, css, bootstrap, copyCSS, copyJS, copyDataJson,
 
 // 'gulp build' will build all assets but not run on a local server.
 exports.build = parallel(nunjucksMinify, css, bootstrap, copyCSS, copyJS, copyDataJson, js, copyImage, imageMin);
-
+exports.cssImage = cssImage;
 exports.del = parallel(remove_files);
 

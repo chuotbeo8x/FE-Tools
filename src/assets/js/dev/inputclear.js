@@ -16,5 +16,6 @@ $(document).ready(function() {
 		}
 	});
 	//end input clear
+	     
 });
 //======================== Input Clear ========================//

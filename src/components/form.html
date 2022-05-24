@@ -1,0 +1,24 @@
+<div class="row gap-4">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+          <div class="form-clear">
+              <label for="exampleFormControlInput1" class="form-label">Email address</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+          </div>
+
+  <div class="form-floating form-clear mb-3">
+  <input type="email" class="form-control" name="q" id="floatingInput" placeholder="name@example.com">
+  <label for="floatingInput">Email address</label>
+</div>
+      </div>
+      <div class="card-body p-0 bg-light position-relative border-top">
+        <div class="d-block py-2 px-3 border-bottom">HTML</div>
+{% set code_html %}<label for="exampleFormControlInput1" class="form-label">Email address</label>
+<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+{% endset %}
+      <pre class="m-0 bg-light snippet"><code class="language-html">{{ code_html }}</code></pre>
+      </div>
+    </div>
+  </div>  
+</div>

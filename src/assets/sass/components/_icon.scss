@@ -1,0 +1,166 @@
+.ic {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  background-color: var(--bs-body-color);
+  content: '';
+  &-16 {
+    width: 16px;
+    height: 16px;
+    background-size: 16px;
+  }
+  &-24 {
+    width: 24px;
+    height: 24px;
+    background-size: 24px;
+  }
+  &-32 {
+    width: 32px;
+    height: 32px;
+    background-size: 32px;
+  }
+  &-primary {
+    background-color: $primary;
+  }
+  &-secondary {
+    background-color: $secondary;
+  }
+  &-success {
+    background-color: $success;
+  }
+  &-danger {
+    background-color: $danger;
+  }
+  &-warning {
+    background-color: $warning;
+  }
+  &-info {
+    background-color: $info;
+  }
+  &-light {
+    background-color: $light;
+  }
+  &-dark {
+    background-color: $dark;
+  }
+}
+
+.btn {
+  &-icon {
+    display: inline-flex;
+    align-items: center;
+    .ic {
+      @include transition($btn-transition);
+    }
+    &.rounded-circle {
+      padding: 0;
+      .ic {
+        margin: 0;
+      }
+    }
+  }
+  &-icon-left {
+    flex-direction: row;
+    .ic {
+      margin-right: calc(var(--bs-btn-padding-y) / 2);
+    }
+  }
+  &-icon-right {
+    flex-direction: row-reverse;
+    .ic {
+      margin-left: calc(var(--bs-btn-padding-y) / 2);
+    }
+  }
+  &-primary, &-secondary, &-success, &-danger, &-warning, &-info, &-light, &-dark, &-link {
+    .ic {
+      background-color: var(--bs-btn-color);
+    }
+  }
+  //outline
+  &-outline-primary {
+      .ic {
+        background-color: $primary;
+      }
+      &:hover {
+        .ic {
+          background-color: var(--bs-btn-hover-color);
+        }
+      }
+  }
+  &-outline-secondary {
+      .ic {
+        background-color: $secondary;
+      }
+      &:hover {
+        .ic {
+          background-color: var(--bs-btn-hover-color);
+        }
+      }
+  }
+  &-outline-success {
+      .ic {
+        background-color: $success;
+      }
+      &:hover {
+        .ic {
+          background-color: var(--bs-btn-hover-color);
+        }
+      }
+  }
+  &-outline-danger {
+      .ic {
+        background-color: $danger;
+      }
+      &:hover {
+        .ic {
+          background-color: var(--bs-btn-hover-color);
+        }
+      }
+  }
+  &-outline-warning {
+      .ic {
+        background-color: $warning;
+      }
+      &:hover {
+        .ic {
+          background-color: var(--bs-btn-hover-color);
+        }
+      }
+  }
+  &-outline-info {
+      .ic {
+        background-color: $info;
+      }
+      &:hover {
+        .ic {
+          background-color: var(--bs-btn-hover-color);
+        }
+      }
+  }
+  &-outline-light {
+      .ic {
+        background-color: $light;
+      }
+      &:hover {
+        .ic {
+          background-color: var(--bs-btn-hover-color);
+        }
+      }
+  }
+  &-outline-dark {
+      .ic {
+        background-color: $dark;
+      }
+      &:hover {
+        .ic {
+          background-color: var(--bs-btn-hover-color);
+        }
+      }
+  }
+}
