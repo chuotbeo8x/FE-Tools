@@ -1,5 +1,5 @@
 .select2-container--default {
-    .select2-selection--single {
+    .select2-selection--single, .select2-selection--multiple {
         display: block;
         width: 100%;
         padding: $input-padding-y $input-padding-x;
@@ -65,9 +65,9 @@
     .select2-search__field {
         display: block;
         width: 100%;
-        padding: $input-padding-y $input-padding-x;
+        padding: $input-padding-y-sm $input-padding-x-sm;
         font-family: $input-font-family;
-        @include font-size($input-font-size);
+        @include font-size($input-font-size-sm);
         font-weight: $input-font-weight;
         line-height: $input-line-height;
         color: $input-color;
@@ -75,7 +75,7 @@
         background-clip: padding-box;
         border: $input-border-width solid $input-border-color;
         appearance: none; // Fix appearance for date inputs in Safari
-        height: auto;
+        height: $input-height-sm;
         &:focus {
             color: $input-focus-color;
             background-color: $input-focus-bg;
@@ -128,11 +128,18 @@
 
 .close-select {
     margin-bottom:$input-padding-x;
+    margin-left: -$input-padding-x;
+    margin-right: -$input-padding-x;
+    padding-left: $input-padding-x;
+    padding-right: $input-padding-x;
+    padding-bottom: $input-padding-x;
     position: relative;
+    border: $input-border-width solid $input-border-color;
+    border-width: 0 0 1px 0;
     .close-select__btn {
         position: absolute;
         top: 0;
-        right: 0;
+        right: $input-padding-x;
         border: none;
         background-color: $border-color;
         mask-image: url(../media/mics/ic_close2.svg);

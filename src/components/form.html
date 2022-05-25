@@ -1,4 +1,4 @@
-<div class="row gap-4">
+<div class="row gap-4 mb-4">
   <div class="col-12">
     <div class="card">
       <div class="card-body">
@@ -28,19 +28,53 @@
   </div>
 </div>
 
-<select class="form-select select-2" aria-label="Default select example" header-text="Quốc gia"
-  data-placeholder="Quốc gia">
-  <option selected>Open this select menu</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-  <option value="4">Three</option>
-  <option value="5">Three</option>
-  <option value="6">Three</option>
-  <option value="7">Three</option>
-  <option value="8">Three</option>
-  <option value="9">Three</option>
-  <option value="10">Three</option>
-  <option value="11">Three</option>
-  <option value="12">Three</option>
-</select>
+<div class="row gap-4">
+  <div class="col col-lg-6">
+    <select class="input select-2" id="" header-text="Quốc gia" data-placeholder="Quốc gia">
+      <option value=""></option>
+      <option value="vn">Việt Nam</option>
+      <option value="kor">Hàn Quốc</option>
+      <option value="usa">Mỹ</option>
+      <option value="cnn">Trung Quốc</option>
+    </select>
+  </div>
+  <div class="col col-lg-6">
+    <select class="input select-2" id="chooseGenre" multiple header-text="Thể loại" data-placeholder="Thể loại">
+      <option value=""></option>
+      <option value="action">Hành động</option>
+      <option value="horror">Kinh dị</option>
+      <option value="cotrang">Cổ trang</option>
+      <option value="comedy">Hài</option>
+    </select>
+  </div>
+  <div class="col col-lg-6">
+    <select name="" class="select-2 select-2-template" header-text="Thể loại" data-minimum-results-for-search="Infinity"
+      data-placeholder="Thể loại">
+      <option value=""></option>
+      <option dataimgclass="ubtn-circle-size-xs ubtn-square" dataimg="media/" datasub="">Hành động
+      </option>
+      <option dataimgclass="ubtn-circle-size-xs ubtn-square" dataimg="media/" datasub="">Kinh dị</option>
+      <option dataimgclass="ubtn-circle-size-xs ubtn-square" dataimg="media/" datasub="">Tình cảm</option>
+    </select>
+  </div>
+  <div class="col col-lg-6">
+    <select name="" multiple class="select-2 select-2-template select-placeholder-icon" header-text="Thể loại"
+      data-placeholder="Thể loại">
+      <option value=""></option>
+      <option dataimgclass="ubtn-circle-size-xs ubtn-square" dataimg="media/" datasub="">Hành động
+      </option>
+      <option dataimgclass="ubtn-circle-size-xs ubtn-square" dataimg="media/" datasub="">Kinh dị</option>
+      <option dataimgclass="ubtn-circle-size-xs ubtn-square" dataimg="media/" datasub="">Tình cảm</option>
+    </select>
+  </div>
+  <div class="col col-lg-6">
+    <select class="input select-2 select-choosen-icon" id="chooseLocation" header-text="Địa điểm"
+      data-placeholder="Bạn muốn xem phim tại">
+      <option value=""></option>
+      <option value="vn">Hà Nội</option>
+      <option value="kor">Hải Phòng</option>
+      <option value="usa">TP.Hồ Chí Minh</option>
+      <option value="cnn">Đà Nẵng</option>
+    </select>
+  </div>
+</div>
