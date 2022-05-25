@@ -1,3 +1,11 @@
 @import "./base/custom_variables";
+//Icons
 @import "./components/icon";
 @import "./components/list_icon";
+//Form
+@import "./components/form";
+//Select 2
+@import "./components/select2";
+body {
+        min-height: 100vh;
+}

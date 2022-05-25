@@ -1,0 +1,43 @@
+.btn-clearform {
+    position: absolute;
+    top: $input-btn-padding-y * 2;
+    right: $input-btn-padding-x;
+    border: none;
+    background-color: $input-border-color;
+    mask-image: url(../media/mics/ic_close.svg);
+    -webkit-mask-image: url(../media/mics/ic_close.svg);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    &.show {
+        opacity: 1;
+    }
+}
+.form-clear {
+    display: block;
+    position: relative;
+    .form-control {
+        &:focus {
+            padding-right:$input-btn-padding-x * 3;
+        }
+    }
+    .form-control-lg ~ .btn-clearform {
+        top: $input-padding-y-lg * 2;
+        right: $input-btn-padding-x-lg;
+    }
+    .form-control-sm ~ .btn-clearform {
+        top: $input-padding-y-sm * 2;
+        right: $input-btn-padding-x-sm;
+    }
+    &.form-floating {
+        .btn-clearform {
+            top: $input-btn-padding-y * 3.5;
+        }
+    }
+}

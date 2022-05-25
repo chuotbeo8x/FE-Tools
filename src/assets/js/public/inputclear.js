@@ -1,19 +1,26 @@
-var inputclears = document.querySelectorAll(".form-control");
-[].forEach.call(inputclears, function (inputclear) {
-    inputclear.insertAdjacentHTML("afterend",
-    '<div class="btn-clipboard"><i class="bi bi-clipboard"></i></div>');
+//======================== Input Clear ========================//
+$(document).ready(function() {
+	//input clear
+	var inputclears = document.querySelectorAll(".form-control");
+	[].forEach.call(inputclears, function (inputclear) {
+		inputclear.insertAdjacentHTML("afterend",
+		'<button type="button" class="btn-clearform"></button>');
+	});
+	$('.btn-clearform').on('mousedown', function () {
+		var input = $(this).closest('.form-clear').find('.form-control');
+		input.val('')
+		input.trigger('input');
+    $(this).removeClass('show')
+	})
+	$('.form-control').on('paste keyup change', function () {
+		var inputClear = $(this).closest('.form-clear').find('.btn-clearform');
+		if ($(this).val()) {
+			inputClear.addClass('show');
+		}
+		else {
+			inputClear.removeClass('show');
+		}
+	});
+	//end input clear
 });
-(function() {
-	var searchForm = document.getElementsByClassName('.form-clear'),
-		textInput = inputclears,
-		clearBtn = textInput.nextSibling;
-	textInput.onkeyup = function() {
-		// Show the clear button if text input value is not empty
-		clearBtn.style.visibility = (this.value.length) ? "visible" : "hidden";
-	};
-	// Hide the clear button on click, and reset the input value
-	clearBtn.onclick = function() {
-		this.style.visibility = "hidden";
-		textInput.value = "";
-	};
-})();
+//======================== Input Clear ========================//

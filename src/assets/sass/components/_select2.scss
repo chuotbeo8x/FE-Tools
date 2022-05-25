@@ -1,0 +1,184 @@
+.select2-container--default {
+    .select2-selection--single {
+        display: block;
+        width: 100%;
+        padding: $input-padding-y $input-padding-x;
+        font-family: $input-font-family;
+        @include font-size($input-font-size);
+        font-weight: $input-font-weight;
+        line-height: $input-line-height;
+        color: $input-color;
+        background-color: $input-bg;
+        background-clip: padding-box;
+        border: $input-border-width solid $input-border-color;
+        appearance: none; // Fix appearance for date inputs in Safari
+        height: auto;
+        .select2-selection__rendered {
+            padding: 0;
+            line-height: $input-line-height;
+            color: $input-color;
+        }
+        .select2-selection__arrow {
+            position: absolute;
+            top: $input-btn-padding-y;
+            right: $input-btn-padding-x;
+            border: none;
+            background-color: $input-color;
+            mask-image: url(../media/mics/ic_chevron_up.svg);
+            -webkit-mask-image: url(../media/mics/ic_chevron_up.svg);
+            mask-repeat: no-repeat;
+            -webkit-mask-repeat: no-repeat;
+            mask-position: center;
+            -webkit-mask-position: center;
+            mask-size: cover;
+            -webkit-mask-size: cover;
+            width: 24px;
+            height: 24px;
+            transform: rotate(180deg);
+            b {display: none !important;}
+        }
+    }
+    &.select2-container--open {
+        .select2-selection--single {
+            .select2-selection__arrow {
+                transform: rotate(0deg);
+            }
+        }
+    }
+    .select2-search--dropdown {
+        .select2-search__field {
+            border: $input-border-width solid $input-border-color;
+            @include border-radius($input-border-radius, 0);
+            margin-bottom: $input-padding-x;
+        }
+    } 
+}
+
+.select2-dropdown {
+    border: $input-border-width solid $input-border-color;
+    padding: $input-padding-x;
+    box-shadow:  $box-shadow;
+}
+
+.select2-search--dropdown {
+    padding: 0;
+    .select2-search__field {
+        display: block;
+        width: 100%;
+        padding: $input-padding-y $input-padding-x;
+        font-family: $input-font-family;
+        @include font-size($input-font-size);
+        font-weight: $input-font-weight;
+        line-height: $input-line-height;
+        color: $input-color;
+        background-color: $input-bg;
+        background-clip: padding-box;
+        border: $input-border-width solid $input-border-color;
+        appearance: none; // Fix appearance for date inputs in Safari
+        height: auto;
+        &:focus {
+            color: $input-focus-color;
+            background-color: $input-focus-bg;
+            border-color: $input-focus-border-color;
+            outline: 0;
+            @if $enable-shadows {
+            @include box-shadow($input-box-shadow, $input-focus-box-shadow);
+            } @else {
+            // Avoid using mixin so we can pass custom focus shadow properly
+            box-shadow: $input-focus-box-shadow;
+            }
+        }
+        &::placeholder {
+            color: $input-placeholder-color;
+            // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+            opacity: 1;
+        }
+    }
+}
+
+.select2-results__option {
+    &[aria-selected="true"] {
+        position: relative;
+        color: $primary;
+        &::after {
+            position: absolute;
+            top: $input-btn-padding-y;
+            right: 0;
+            border: none;
+            background-color: $primary;
+            mask-image: url(../media/mics/ic_check.svg);
+            -webkit-mask-image: url(../media/mics/ic_check.svg);
+            mask-repeat: no-repeat;
+            -webkit-mask-repeat: no-repeat;
+            mask-position: center;
+            -webkit-mask-position: center;
+            mask-size: cover;
+            -webkit-mask-size: cover;
+            width: 24px;
+            height: 24px;
+            display: block;
+            content: '';
+        }
+    }
+    &:hover {
+        color: $primary;
+        cursor: pointer;
+    }
+}
+
+.close-select {
+    margin-bottom:$input-padding-x;
+    position: relative;
+    .close-select__btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: none;
+        background-color: $border-color;
+        mask-image: url(../media/mics/ic_close2.svg);
+        -webkit-mask-image: url(../media/mics/ic_close2.svg);
+        mask-repeat: no-repeat;
+        -webkit-mask-repeat: no-repeat;
+        mask-position: center;
+        -webkit-mask-position: center;
+        mask-size: cover;
+        -webkit-mask-size: cover;
+        width: 24px;
+        height: 24px;
+        display: block;
+        content: '';
+        cursor: pointer;
+        &:hover {
+            background-color: $body-color;
+        }
+    }
+}
+
+.select-2-backdrop {
+    transition: 0.3s all ease-in-out;
+    &.show {
+        width: 100vw;
+        height: 100vh;
+        background-color: $modal-backdrop-bg;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: $zindex-modal-backdrop;
+        opacity: $modal-backdrop-opacity;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .select2-container--open .select2-dropdown--above.top-0 {
+        transform: translate(0,0);
+        transition: 0.3s all ease-in-out;
+    }
+    .select2-dropdown {
+        transform: translate(0,100%);
+        position: fixed;
+        width: 100% !important;
+        bottom: 0;
+        transition: 0.3s all ease-in-out;
+        margin-top: calc(100vh - 80%);
+    }
+}

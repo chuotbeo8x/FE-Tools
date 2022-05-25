@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="_16x16-Check" data-name="16x16-Check" transform="translate(-119 -172)">
+    <g id="Container16" transform="translate(119 172)" fill="#fff" stroke="#bfccd9" stroke-width="1" opacity="0">
+      <rect width="16" height="16" stroke="none"/>
+      <rect x="0.5" y="0.5" width="15" height="15" fill="none"/>
+    </g>
+    <path id="check" d="M5.928,10.477a.6.6,0,0,0-.868.828l2.382,2.5a.6.6,0,0,0,.89-.024l5.727-6.691a.6.6,0,1,0-.912-.78l-5.1,5.963a.267.267,0,0,1-.4.011Z" transform="translate(117.439 169.903)" fill="#fff"/>
+  </g>
+</svg>
