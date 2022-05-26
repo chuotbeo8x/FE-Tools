@@ -54,17 +54,17 @@ function templateMultipleSelection(data) {
 function templateImg(img) {
   if (!img.id) { return img.text; }
   if (img.element.attributes.dataimgClass) {
-    return $img = $('<div class="select-tpl-img-wrap"><div class="row row-16 align-items-center"><div class="col-auto"><div class="select-tpl-img ' + img.element.attributes.dataimgClass.value + '" style="background-image: url(\'' + img.element.attributes.dataimg.value + '\')"></div></div><div class="col text-truncate"><div class="select-tpl-txt text-truncate">' + img.text + '</div></div></div></div>');
+    return $img = $('<div class="select-tpl-img-wrap"><div class="row gx-2 align-items-center"><div class="col-auto"><div class="select-tpl-img ' + img.element.attributes.dataimgClass.value + '" style="background-image: url(\'' + img.element.attributes.dataimg.value + '\')"></div></div><div class="col text-truncate"><div class="select-tpl-txt text-truncate">' + img.text + '</div></div></div></div>');
   } else {
-    return $img = $('<div class="select-tpl-img-wrap"><div class="row row-16 align-items-center"><div class="col text-truncate"><div class="select-tpl-txt text-truncate">' + img.text + '</div></div></div></div>');
+    return $img = $('<div class="select-tpl-img-wrap"><div class="row gx-2 align-items-center"><div class="col text-truncate"><div class="select-tpl-txt text-truncate">' + img.text + '</div></div></div></div>');
   }
 };
 function templateImgRes(img) {
   if (!img.id) { return img.text; }
   if (img.element.attributes.dataimgClass) {
-    return $img = $('<div class="select-tpl-img-wrap"><div class="row row-16 align-items-center"><div class="col-auto"><div class="select-tpl-img ' + img.element.attributes.dataimgClass.value + '" style="background-image: url(\'' + img.element.attributes.dataimg.value + '\')"></div></div><div class="col col-li-value"><div class="select-tpl-txt b">' + img.text + '</div><div class="select-tpl-txt-sub h7 color-default-3">' + img.element.attributes.datasub.value + '</div></div></div></div>');
+    return $img = $('<div class="select-tpl-img-wrap"><div class="row gx-2 align-items-center"><div class="col-auto"><div class="select-tpl-img ' + img.element.attributes.dataimgClass.value + '" style="background-image: url(\'' + img.element.attributes.dataimg.value + '\')"></div></div><div class="col col-li-value"><div class="select-tpl-txt">' + img.text + '</div><div class="select-tpl-txt-sub">' + img.element.attributes.datasub.value + '</div></div></div></div>');
   } else {
-    return $img = $('<div class="select-tpl-img-wrap"><div class="row row-16 align-items-center"><div class="col"><div class="select-tpl-txt b">' + img.text + '</div><div class="select-tpl-txt-sub h7 color-default-3">' + img.element.attributes.datasub.value + '</div></div></div></div>');
+    return $img = $('<div class="select-tpl-img-wrap"><div class="row gx-2 align-items-center"><div class="col"><div class="select-tpl-txt">' + img.text + '</div><div class="select-tpl-txt-sub">' + img.element.attributes.datasub.value + '</div></div></div></div>');
   }
 };
 //end: custom select-2-template
@@ -82,6 +82,7 @@ function selectAll() {
   selectEl.find("option:not(:empty)").prop("selected", true);
   selectEl.trigger("change");
   $("li.select2-results__option").attr('aria-selected', 'true');
+  $(".select2-ult-section").attr('aria-selected', 'true');
 }
 
 function deselectAll() {
@@ -92,6 +93,7 @@ function deselectAll() {
   $('.select2-container--open').siblings(".select-2[multiple]").find("option").find('option').prop('selected', false);
   $('.select2-container--open').siblings(".select-2[multiple]").trigger("change");
   $("li.select2-results__option").attr('aria-selected', 'false');
+  $(".select2-ult-section").attr('aria-selected', 'false');
 }
 
 $(document).ready(function () {
@@ -187,7 +189,7 @@ $(document).ready(function () {
         $('body > .select2-container .select2-dropdown').prepend('<div class="close-select"><div class="close-select__btn" href="javascript:void(0)" onclick="closeSelect()"></div>' + x + '</div>');
       }
       else {
-        $('body > .select2-container .select2-dropdown').prepend('<div class="close-select"><div class="close-select__btn" href="javascript:void(0)" onclick="closeSelect()"></div>' + x + '</div><span class="no-pb select2-search select2-search-container select2-search--dropdown"><input placeholder="Tìm kiếm" id="select-2-search-multiple" class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox"></span>');
+        $('body > .select2-container .select2-dropdown').prepend('<div class="close-select"><div class="close-select__btn" href="javascript:void(0)" onclick="closeSelect()"></div>' + x + '</div><span class="d-none select2-search select2-search-container select2-search--dropdown"><input placeholder="Tìm kiếm" id="select-2-search-multiple" class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox"></span>');
         $("#select-2-search-multiple").keyup(function () {
           select2_search($("#select-2-search-multiple").val());
         });
@@ -197,7 +199,7 @@ $(document).ready(function () {
     }
 
     $('.select2-ult-section').remove();
-    $('body > .select2-container .select2-search--dropdown').append('<div class="select2-ult-section"><div class="select-all" onclick="selectAll()">Chọn tất cả</div><div class="unselect-all" onclick="deselectAll()">Bỏ chọn tất cả</div></div>');
+    $('body > .select2-container .select2-search--dropdown').append('<div class="select2-ult-section" aria-selected="false"><div class="select-all" onclick="selectAll()">Chọn tất cả</div><div class="unselect-all" onclick="deselectAll()">Bỏ chọn tất cả</div></div>');
   }).on("select2:closing", function () {
     $('.select-2-backdrop').removeClass('show');
     if ($(window).width() <= 767) {

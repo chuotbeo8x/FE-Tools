@@ -2,19 +2,35 @@
   <div class="col-12">
     <div class="card">
       <div class="card-body">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <div class="form-clear">
-          <input type="email" class="form-control " id="exampleFormControlInput1" placeholder="name@example.com"
-            required>
-          <div class="invalid-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-        </div>
-
-
-
-        <div class="form-floating form-clear mb-3">
-          <input type="email" class="form-control" name="q" id="floatingInput" placeholder="name@example.com" required>
-          <label for="floatingInput">Email address</label>
-          <div class="invalid-feedback">Vivamus dignissim velit id eros finibus tempus.</div>
+        <div class="grid gap-4">
+          <div class="g-col-6">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <div class="form-clear">
+              <input type="email" class="form-control " id="exampleFormControlInput1" placeholder="name@example.com"
+                required>
+              <div class="invalid-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+            </div>
+          </div>
+          <div class="g-col-6">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <div class="form-clear input-group input-group-button-left has-validation">
+              <input type="email" class="form-control " id="exampleFormControlInput1" placeholder="name@example.com"
+                required>
+              <span class="input-group-icon">
+                <div class="vr"></div>
+                <button type="button" class="btn btn-icon"><img class="img-fluid" src="../media/mics/ic_contact.svg" alt=""></button>
+              </span>
+              <div class="invalid-feedback">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+            </div>
+          </div>
+          <div class="g-col-6">
+            <div class="form-floating form-clear mb-3">
+              <input type="email" class="form-control" name="q" id="floatingInput" placeholder="name@example.com"
+                required>
+              <label for="floatingInput">Email address</label>
+              <div class="invalid-feedback">Vivamus dignissim velit id eros finibus tempus.</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="card-body p-0 bg-light position-relative border-top">
@@ -28,8 +44,8 @@
   </div>
 </div>
 
-<div class="row gap-4">
-  <div class="col col-lg-6">
+<div class="grid gap-4">
+  <div class="g-col-6">
     <select class="input select-2" id="" header-text="Quốc gia" data-placeholder="Quốc gia">
       <option value=""></option>
       <option value="vn">Việt Nam</option>
@@ -38,7 +54,7 @@
       <option value="cnn">Trung Quốc</option>
     </select>
   </div>
-  <div class="col col-lg-6">
+  <div class="g-col-6">
     <select class="input select-2" id="chooseGenre" multiple header-text="Thể loại" data-placeholder="Thể loại">
       <option value=""></option>
       <option value="action">Hành động</option>
@@ -47,17 +63,17 @@
       <option value="comedy">Hài</option>
     </select>
   </div>
-  <div class="col col-lg-6">
-    <select name="" class="select-2 select-2-template" header-text="Thể loại" data-minimum-results-for-search="Infinity"
-      data-placeholder="Thể loại">
+  <div class="g-col-6">
+    <select name="" class="select-2 select-2-template" header-text="Thể loại có ảnh"
+      data-minimum-results-for-search="Infinity" data-placeholder="Thể loại có ảnh">
       <option value=""></option>
-      <option dataimgclass="ubtn-circle-size-xs ubtn-square" dataimg="media/" datasub="">Hành động
+      <option dataimgclass="ubtn-circle-size-xs ubtn-square" dataimg="" datasub="">Hành động
       </option>
       <option dataimgclass="ubtn-circle-size-xs ubtn-square" dataimg="media/" datasub="">Kinh dị</option>
       <option dataimgclass="ubtn-circle-size-xs ubtn-square" dataimg="media/" datasub="">Tình cảm</option>
     </select>
   </div>
-  <div class="col col-lg-6">
+  <div class="g-col-6">
     <select name="" multiple class="select-2 select-2-template select-placeholder-icon" header-text="Thể loại"
       data-placeholder="Thể loại">
       <option value=""></option>
@@ -67,7 +83,7 @@
       <option dataimgclass="ubtn-circle-size-xs ubtn-square" dataimg="media/" datasub="">Tình cảm</option>
     </select>
   </div>
-  <div class="col col-lg-6">
+  <div class="g-col-6">
     <select class="input select-2 select-choosen-icon" id="chooseLocation" header-text="Địa điểm"
       data-placeholder="Bạn muốn xem phim tại">
       <option value=""></option>

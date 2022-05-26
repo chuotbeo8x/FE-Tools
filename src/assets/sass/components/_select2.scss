@@ -8,7 +8,7 @@
         font-weight: $input-font-weight;
         line-height: $input-line-height;
         color: $input-color;
-        background-color: $input-bg;
+        background-color: transparent;
         background-clip: padding-box;
         border: $input-border-width solid $input-border-color;
         appearance: none; // Fix appearance for date inputs in Safari
@@ -17,32 +17,43 @@
             padding: 0;
             line-height: $input-line-height;
             color: $input-color;
+            cursor: pointer;
+            padding-right: $input-padding-x * 2;
         }
         .select2-selection__arrow {
-            position: absolute;
-            top: $input-btn-padding-y;
-            right: $input-btn-padding-x;
-            border: none;
-            background-color: $input-color;
-            mask-image: url(../media/mics/ic_chevron_up.svg);
-            -webkit-mask-image: url(../media/mics/ic_chevron_up.svg);
-            mask-repeat: no-repeat;
-            -webkit-mask-repeat: no-repeat;
-            mask-position: center;
-            -webkit-mask-position: center;
-            mask-size: cover;
-            -webkit-mask-size: cover;
-            width: 24px;
-            height: 24px;
-            transform: rotate(180deg);
+            display: none !important;
             b {display: none !important;}
         }
+        .select2-selection__placeholder {
+            color: $input-placeholder-color;
+        }
+    }
+    .selection {
+        position: relative;
+        z-index: 1;
+    }
+    .dropdown-wrapper {
+        position: absolute;
+        top: $input-btn-padding-y;
+        right: $input-btn-padding-x;
+        border: none;
+        background-color: $input-color;
+        mask-image: url(../media/mics/ic_chevron_up.svg);
+        -webkit-mask-image: url(../media/mics/ic_chevron_up.svg);
+        mask-repeat: no-repeat;
+        -webkit-mask-repeat: no-repeat;
+        mask-position: center;
+        -webkit-mask-position: center;
+        mask-size: cover;
+        -webkit-mask-size: cover;
+        width: 24px;
+        height: 24px;
+        transform: rotate(180deg);
+        transition: $transition-base;
     }
     &.select2-container--open {
-        .select2-selection--single {
-            .select2-selection__arrow {
-                transform: rotate(0deg);
-            }
+        .dropdown-wrapper {
+            transform: rotate(0deg);
         }
     }
     .select2-search--dropdown {
@@ -51,7 +62,13 @@
             @include border-radius($input-border-radius, 0);
             margin-bottom: $input-padding-x;
         }
-    } 
+    }
+    &.select2-container--focus {
+        .select2-selection--multiple {
+            border-color: $input-border-color;
+            cursor: pointer;
+        }
+    }
 }
 
 .select2-dropdown {
@@ -92,6 +109,58 @@
             color: $input-placeholder-color;
             // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
             opacity: 1;
+        }
+    }
+    .select2-ult-section {
+        position: relative;
+        padding: $input-padding-y-sm $input-padding-x-sm;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right:$input-padding-x-lg * 1.8 ;
+        color: $input-placeholder-color;
+        > * {
+            cursor: pointer;
+            @include font-size($input-font-size-sm);
+            &:hover {
+                color: $primary;
+            }
+        }
+        &::after {
+            position: absolute;
+            top: $input-btn-padding-y-sm;
+            right: 0;
+            border: none;
+            background-color: $input-placeholder-color;
+            mask-image: url(../media/mics/ic_check.svg);
+            -webkit-mask-image: url(../media/mics/ic_check.svg);
+            mask-repeat: no-repeat;
+            -webkit-mask-repeat: no-repeat;
+            mask-position: center;
+            -webkit-mask-position: center;
+            mask-size: cover;
+            -webkit-mask-size: cover;
+            width: 24px;
+            height: 24px;
+            display: block;
+            content: '';
+        }
+        &[aria-selected="true"] {
+            position: relative;
+            color: $primary;
+            .select-all {
+                display: none;
+            }
+            &::after {
+                background-color: $primary;
+            }
+        }
+        &[aria-selected="false"] {
+            position: relative;
+            color: $input-placeholder-color;
+            .unselect-all {
+                display: none;
+            }
         }
     }
 }
@@ -162,7 +231,7 @@
 }
 
 .select-2-backdrop {
-    transition: 0.3s all ease-in-out;
+    transition: $transition-base;
     &.show {
         width: 100vw;
         height: 100vh;
@@ -178,7 +247,7 @@
 @media (max-width: 767.98px) {
     .select2-container--open .select2-dropdown--above.top-0 {
         transform: translate(0,0);
-        transition: 0.3s all ease-in-out;
+        transition: $transition-base;
     }
     .select2-dropdown {
         transform: translate(0,100%);

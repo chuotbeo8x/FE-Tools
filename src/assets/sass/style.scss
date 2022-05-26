@@ -1,4 +1,11 @@
-@import "./base/custom_variables";
+@import "./vendors/bootstrap/functions";
+@import "./vendors/bootstrap/variables";
+@import "./vendors/bootstrap/maps";
+@import "./vendors/bootstrap/mixins";
+@import "./vendors/bootstrap/utilities";
+
+
+@import "./base/custom_variables.scss";
 //Icons
 @import "./components/icon";
 @import "./components/list_icon";

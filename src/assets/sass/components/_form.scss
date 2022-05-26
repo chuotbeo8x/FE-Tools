@@ -20,7 +20,6 @@
     }
 }
 .form-clear {
-    display: block;
     position: relative;
     .form-control {
         &:focus {
@@ -40,4 +39,167 @@
             top: $input-btn-padding-y * 3.5;
         }
     }
+    &.input-group {
+        .btn-clearform {
+            z-index: 6;
+        }
+        .form-control ~ .btn-clearform {
+            right: $input-btn-padding-x * 4.2;
+        }
+        .form-control-lg ~ .btn-clearform {
+            top: $input-padding-y-lg * 2;
+            right: $input-btn-padding-x-lg * 3.2;
+        }
+        .form-control-sm ~ .btn-clearform {
+            top: $input-padding-y-sm * 3;
+            right: $input-btn-padding-x-sm * 6.2;
+        }
+    }
+}
+
+.input-group-icon {
+  display: flex;
+  align-items: center;
+  padding: $input-group-addon-padding-y $input-group-addon-padding-x;
+  @include font-size($input-font-size); // Match inputs
+  font-weight: $input-group-addon-font-weight;
+  line-height: $input-line-height;
+  color: $input-group-addon-color;
+  text-align: center;
+  white-space: nowrap;
+  border: $input-border-width solid $input-group-addon-border-color;
+  @include border-radius($input-border-radius);
+  //@include transition($input-transition);
+  transition: all .30s ease-in-out;
+    .btn {
+        padding: 0;
+        max-width: $input-group-addon-padding-y * 3.333;
+        max-height:$input-group-addon-padding-y * 3.333;
+        &:hover, &:focus {
+            background-color: transparent;
+            border-color: transparent;
+        }
+    }
+    .vr {
+        margin-right: $input-group-addon-padding-x;
+    }
+}
+
+.input-group-button-right {
+  &:not(.has-validation) {
+    > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
+    > .dropdown-toggle:nth-last-child(n + 3) {
+      @include border-end-radius($border-radius);
+    }
+    > .form-control {
+        border-width: $input-border-width 0 $input-border-width $input-border-width;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        &.is-invalid + .btn-clearform + .input-group-icon {
+            border-color: $danger;
+        }
+        &:focus + .btn-clearform + .input-group-icon {
+            border-color: $input-focus-border-color;
+        }
+        .input-group-icon {
+            padding-left: 0;
+        }
+    }
+  }
+
+  &.has-validation {
+    > :nth-last-child(n + 3):not(.dropdown-toggle):not(.dropdown-menu),
+    > .dropdown-toggle:nth-last-child(n + 4) {
+      @include border-end-radius(0);
+    }
+    > .form-control {
+        border-width: $input-border-width 0 $input-border-width $input-border-width;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        &.is-invalid + .btn-clearform + .input-group-icon {
+            border-color: $danger;
+        }
+        &:focus + .btn-clearform + .input-group-icon {
+            border-color: $input-focus-border-color;
+        }
+        ~ .btn-clearform {
+            right: $input-btn-padding-x * 5.2;
+        }
+    }
+    .input-group-icon {
+            padding-left: 0;
+        }
+  }
+}
+
+.input-group-button-left {
+  &:not(.has-validation) {
+    > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
+    > .dropdown-toggle:nth-last-child(n + 3) {
+        @include border-start-radius(0);
+    }
+    > .form-control {
+        border-width: $input-border-width $input-border-width $input-border-width 0;
+        order: 2;        
+        border-top-right-radius: $border-radius !important;
+        border-bottom-right-radius: $border-radius !important;
+        &.is-invalid + .btn-clearform + .input-group-icon {
+            border-color: $danger;
+        }
+        &:focus + .btn-clearform + .input-group-icon {
+            border-color: $input-focus-border-color;
+        }
+    }
+    > .input-group-icon {
+        order: 1;
+        @include border-end-radius(0);
+        border-top-left-radius: $border-radius !important;
+        border-bottom-left-radius: $border-radius !important;
+        border-width: $input-border-width 0 $input-border-width $input-border-width;
+        .vr {
+            order: 2;
+        }
+    }
+    > .invalid-feedback {
+        order: 3;
+    }
+  }
+
+  &.has-validation {
+    > :nth-last-child(n + 3):not(.dropdown-toggle):not(.dropdown-menu),
+    > .dropdown-toggle:nth-last-child(n + 4) {
+      @include border-start-radius(0);
+      @include border-end-radius($border-radius);
+    }
+    > .form-control {
+        border-width: $input-border-width $input-border-width $input-border-width 0;
+        order: 2;
+        &.is-invalid + .btn-clearform + .input-group-icon {
+            border-color: $danger;
+        }
+        &:focus + .btn-clearform + .input-group-icon {
+            border-color: $input-focus-border-color;
+        }
+        ~ .btn-clearform {
+            right: $input-btn-padding-x;
+        }
+    }
+    > .input-group-icon {
+        order: 1;
+        @include border-end-radius(0);
+        border-top-left-radius: $border-radius !important;
+        border-bottom-left-radius: $border-radius !important;
+        border-width: $input-border-width 0 $input-border-width $input-border-width;
+        display: inline-flex;
+        flex-direction: row-reverse;
+        padding-right: 0;
+        .vr {
+            margin-right: 0;
+            margin-left: $input-group-addon-padding-x;
+        }
+    }
+    > .invalid-feedback {
+        order: 3;
+    }
+  }
 }
