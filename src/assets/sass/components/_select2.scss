@@ -1,5 +1,7 @@
 .select2-container--default {
-    .select2-selection--single, .select2-selection--multiple {
+
+    .select2-selection--single,
+    .select2-selection--multiple {
         display: block;
         width: 100%;
         padding: $input-padding-y $input-padding-x;
@@ -13,6 +15,7 @@
         border: $input-border-width solid $input-border-color;
         appearance: none; // Fix appearance for date inputs in Safari
         height: auto;
+
         .select2-selection__rendered {
             padding: 0;
             line-height: $input-line-height;
@@ -20,18 +23,25 @@
             cursor: pointer;
             padding-right: $input-padding-x * 2;
         }
+
         .select2-selection__arrow {
             display: none !important;
-            b {display: none !important;}
+
+            b {
+                display: none !important;
+            }
         }
+
         .select2-selection__placeholder {
             color: $input-placeholder-color;
         }
     }
+
     .selection {
         position: relative;
         z-index: 1;
     }
+
     .dropdown-wrapper {
         position: absolute;
         top: $input-btn-padding-y;
@@ -51,11 +61,13 @@
         transform: rotate(180deg);
         transition: $transition-base;
     }
+
     &.select2-container--open {
         .dropdown-wrapper {
             transform: rotate(0deg);
         }
     }
+
     .select2-search--dropdown {
         .select2-search__field {
             border: $input-border-width solid $input-border-color;
@@ -63,6 +75,7 @@
             margin-bottom: $input-padding-x;
         }
     }
+
     &.select2-container--focus {
         .select2-selection--multiple {
             border-color: $input-border-color;
@@ -74,11 +87,12 @@
 .select2-dropdown {
     border: $input-border-width solid $input-border-color;
     padding: $input-padding-x;
-    box-shadow:  $box-shadow;
+    box-shadow: $box-shadow;
 }
 
 .select2-search--dropdown {
     padding: 0;
+
     .select2-search__field {
         display: block;
         width: 100%;
@@ -93,39 +107,48 @@
         border: $input-border-width solid $input-border-color;
         appearance: none; // Fix appearance for date inputs in Safari
         height: $input-height-sm;
+
         &:focus {
             color: $input-focus-color;
             background-color: $input-focus-bg;
             border-color: $input-focus-border-color;
             outline: 0;
+
             @if $enable-shadows {
-            @include box-shadow($input-box-shadow, $input-focus-box-shadow);
-            } @else {
-            // Avoid using mixin so we can pass custom focus shadow properly
-            box-shadow: $input-focus-box-shadow;
+                @include box-shadow($input-box-shadow, $input-focus-box-shadow);
+            }
+
+            @else {
+                // Avoid using mixin so we can pass custom focus shadow properly
+                box-shadow: $input-focus-box-shadow;
             }
         }
+
         &::placeholder {
             color: $input-placeholder-color;
             // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
             opacity: 1;
         }
     }
+
     .select2-ult-section {
         position: relative;
         padding: $input-padding-y-sm $input-padding-x-sm;
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        padding-right:$input-padding-x-lg * 1.8 ;
+        padding-right: $input-padding-x-lg * 1.8;
         color: $input-placeholder-color;
-        > * {
+
+        >* {
             cursor: pointer;
             @include font-size($input-font-size-sm);
+
             &:hover {
                 color: $primary;
             }
         }
+
         &::after {
             position: absolute;
             top: $input-btn-padding-y-sm;
@@ -145,19 +168,24 @@
             display: block;
             content: '';
         }
+
         &[aria-selected="true"] {
             position: relative;
             color: $primary;
+
             .select-all {
                 display: none;
             }
+
             &::after {
                 background-color: $primary;
             }
         }
+
         &[aria-selected="false"] {
             position: relative;
             color: $input-placeholder-color;
+
             .unselect-all {
                 display: none;
             }
@@ -169,6 +197,7 @@
     &[aria-selected="true"] {
         position: relative;
         color: $primary;
+
         &::after {
             position: absolute;
             top: $input-btn-padding-y;
@@ -189,6 +218,7 @@
             content: '';
         }
     }
+
     &:hover {
         color: $primary;
         cursor: pointer;
@@ -196,7 +226,7 @@
 }
 
 .close-select {
-    margin-bottom:$input-padding-x;
+    margin-bottom: $input-padding-x;
     margin-left: -$input-padding-x;
     margin-right: -$input-padding-x;
     padding-left: $input-padding-x;
@@ -205,6 +235,7 @@
     position: relative;
     border: $input-border-width solid $input-border-color;
     border-width: 0 0 1px 0;
+
     .close-select__btn {
         position: absolute;
         top: 0;
@@ -224,6 +255,7 @@
         display: block;
         content: '';
         cursor: pointer;
+
         &:hover {
             background-color: $body-color;
         }
@@ -232,6 +264,7 @@
 
 .select-2-backdrop {
     transition: $transition-base;
+
     &.show {
         width: 100vw;
         height: 100vh;
@@ -246,15 +279,22 @@
 
 @media (max-width: 767.98px) {
     .select2-container--open .select2-dropdown--above.top-0 {
-        transform: translate(0,0);
+        transform: translate(0, 0);
         transition: $transition-base;
     }
+
     .select2-dropdown {
-        transform: translate(0,100%);
+        transform: translate(0, 100%);
         position: fixed;
         width: 100% !important;
         bottom: 0;
         transition: 0.3s all ease-in-out;
         margin-top: calc(100vh - 80%);
+    }
+
+    .close-select {
+        .close-select__btn {
+            background-color: $body-color;
+        }
     }
 }

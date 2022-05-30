@@ -186,9 +186,12 @@
       border-top-left-radius: $border-radius !important;
       border-bottom-left-radius: $border-radius !important;
       border-width: $input-border-width 0 $input-border-width $input-border-width;
+      padding-right: 0;
 
       .vr {
         order: 2;
+        margin-right: 0;
+        margin-left: $input-group-addon-padding-x;
       }
     }
 
