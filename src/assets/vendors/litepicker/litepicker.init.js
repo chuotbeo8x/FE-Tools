@@ -1,4 +1,4 @@
-const FILE_PATH = "media/components/icons/default/",
+const FILE_PATH = "media/mics/",
   ICON_CLOSE_NAME = "ic-close.svg";
 
 if ($(".lite-picker").length) {
@@ -257,7 +257,7 @@ function GetFormattedDate(date) {
             <div class="litepicker-mobile-header--main">
               <div class="row row-0 align-items-center">
                 <div class="col">
-                  <div class="litepicker-mobile-header-title h3">${title}</div>
+                  <div class="litepicker-mobile-header-title">${title}</div>
                 </div>
                 <div class="col-auto">
                   <button type="button" class="litepicker__close-action dropdown-close">

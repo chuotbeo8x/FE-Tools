@@ -12,10 +12,10 @@
   --litepicker-month-width: calc(var(--litepicker-day-width) * 7); // 7 days
   --litepicker-month-weekday-color: #9e9e9e;
   --litepicker-month-week-number-color: #9e9e9e;
-  --litepicker-day-width: 38px;
+  --litepicker-day-width: 50px;
   --litepicker-day-color: #333;
   --litepicker-day-color-hover: var(--bs-primary);
-  --litepicker-is-today-color: #f44336;
+  --litepicker-is-today-color: var(--bs-danger);
   --litepicker-is-in-range-color: #bbdefb;
   --litepicker-is-locked-color: #9e9e9e;
   --litepicker-is-start-color: #fff;
@@ -103,18 +103,81 @@
           color: var(--litepicker-month-header-color);
 
           div {
-            flex: 1;
+            display: flex;
 
             >.month-item-name {
               margin-right: 5px;
-              outline: none;
-              border: $input-border-width solid $input-border-color;
+              display: block;
+              width: auto;
+              padding: $form-select-padding-y-sm $form-select-indicator-padding $form-select-padding-y-sm $form-select-padding-x;
+              -moz-padding-start: subtract($form-select-padding-x, 3px); // See https://github.com/twbs/bootstrap/issues/32636
+              font-family: $form-select-font-family;
+              @include font-size($form-select-font-size);
+              font-weight: $form-select-font-weight;
+              line-height: $form-select-line-height;
+              color: $form-select-color;
+              background-color: $form-select-bg;
+              background-image: escape-svg($form-select-indicator);
+              background-repeat: no-repeat;
+              background-position: $form-select-bg-position;
+              background-size: $form-select-bg-size;
+              border: $form-select-border-width solid $form-select-border-color;
+              @include border-radius($form-select-border-radius, 0);
+              @include box-shadow($form-select-box-shadow);
+              @include transition($form-select-transition);
+              appearance: none;
+
+              &:focus {
+                border-color: $form-select-focus-border-color;
+                outline: 0;
+
+                @if $enable-shadows {
+                  @include box-shadow($form-select-box-shadow, $form-select-focus-box-shadow);
+                }
+
+                @else {
+                  // Avoid using mixin so we can pass custom focus shadow properly
+                  box-shadow: $form-select-focus-box-shadow;
+                }
+              }
             }
 
             >.month-item-year {
               padding: 0;
               outline: none;
-              border: $input-border-width solid $input-border-color;
+              display: block;
+              width: auto;
+              padding: $form-select-padding-y-sm $form-select-indicator-padding $form-select-padding-y-sm $form-select-padding-x;
+              -moz-padding-start: subtract($form-select-padding-x, 3px); // See https://github.com/twbs/bootstrap/issues/32636
+              font-family: $form-select-font-family;
+              @include font-size($form-select-font-size);
+              font-weight: $form-select-font-weight;
+              line-height: $form-select-line-height;
+              color: $form-select-color;
+              background-color: $form-select-bg;
+              background-image: escape-svg($form-select-indicator);
+              background-repeat: no-repeat;
+              background-position: $form-select-bg-position;
+              background-size: $form-select-bg-size;
+              border: $form-select-border-width solid $form-select-border-color;
+              @include border-radius($form-select-border-radius, 0);
+              @include box-shadow($form-select-box-shadow);
+              @include transition($form-select-transition);
+              appearance: none;
+
+              &:focus {
+                border-color: $form-select-focus-border-color;
+                outline: 0;
+
+                @if $enable-shadows {
+                  @include box-shadow($form-select-box-shadow, $form-select-focus-box-shadow);
+                }
+
+                @else {
+                  // Avoid using mixin so we can pass custom focus shadow properly
+                  box-shadow: $form-select-focus-box-shadow;
+                }
+              }
             }
           }
 
@@ -405,5 +468,103 @@
         content: "";
       }
     }
+  }
+}
+
+.litepicker-mobile-header {
+  display: block;
+  width: 100%;
+
+}
+
+.litepicker-mobile-header--main {
+  margin-bottom: $input-padding-y;
+  padding: $input-padding-x;
+  border: $input-border-width solid $input-border-color;
+  border-width: 0 0 1px 0;
+
+  .row {
+    margin: 0;
+
+    >* {
+      padding: 0;
+    }
+  }
+
+  .litepicker__close-action {
+    padding: 0;
+  }
+}
+
+.litepicker-mobile-header-content {
+  padding: $input-padding-y $input-padding-x;
+
+  .row {
+    align-items: center;
+  }
+
+  .litepicker-mobile-date {
+    display: block;
+    width: 100%;
+    padding: $input-padding-y $input-padding-x;
+    font-family: $input-font-family;
+    @include font-size($input-font-size);
+    font-weight: $input-font-weight;
+    line-height: $input-line-height;
+    color: $input-color;
+    background-color: $input-bg;
+    background-clip: padding-box;
+    border: $input-border-width solid $input-border-color;
+    appearance: none; // Fix appearance for date inputs in Safari
+
+    // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+    @include border-radius($input-border-radius, 0);
+    background-image: url(../media/mics/ic_calendar.svg);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 12px) center;
+  }
+}
+
+.litepicker.mobilefriendly[data-plugins*="mobilefriendly"] {
+  left: 0 !important;
+  top: auto !important;
+  bottom: 0 !important;
+  transition: $transition-base;
+  transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+}
+
+@media (max-width: 575.98px) {
+  .litepicker:not(.litepicker-scroll-vertical) {
+    pointer-events: none;
+    width: 100%;
+    bottom: 0 !important;
+    top: auto !important;
+    opacity: 0;
+    left: 0 !important;
+    font-size: 16px !important;
+    transition: 0.3s all ease-in-out;
+    transform: translateY(100%) !important;
+    display: block !important;
+    position: fixed;
+  }
+
+  .litepicker.mobilefriendly {
+    pointer-events: all;
+    opacity: 1;
+    transform: translateY(0%) !important;
+  }
+
+  .litepicker .container__months {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .litepicker .container__months .month-item-header .button-previous-month,
+  .litepicker .container__months .month-item-header .button-next-month {
+    visibility: visible !important;
   }
 }
