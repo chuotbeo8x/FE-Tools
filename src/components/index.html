@@ -120,10 +120,12 @@
             <button type="button" class="list-group-item list-group-item-action" id="v-pills-button-tab"
               data-bs-toggle="pill" data-bs-target="#v-pills-button" role="tab" aria-controls="v-pills-button"
               aria-selected="false">Button & Icon</button>
-            <button type="button" class="list-group-item list-group-item-action active" id="v-pills-form-tab"
+            <button type="button" class="list-group-item list-group-item-action" id="v-pills-form-tab"
               data-bs-toggle="pill" data-bs-target="#v-pills-form" role="tab" aria-controls="v-pills-form"
               aria-selected="false">Form</button>
-            <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
+            <button type="button" class="list-group-item list-group-item-action active" id="v-pills-omtd-tab"
+              data-bs-toggle="pill" data-bs-target="#v-pills-omtd" role="tab" aria-controls="v-pills-omtd"
+              aria-selected="false">Offcanvas & Toast & Modal</button>
             <button type="button" class="list-group-item list-group-item-action" disabled>A disabled button
               item</button>
           </div>
@@ -139,14 +141,13 @@
             tabindex="0">
             {% include "button.html" %}
           </div>
-          <div class="tab-pane fade show active" id="v-pills-form" role="tabpanel" aria-labelledby="v-pills-form-tab"
-            tabindex="0">
+          <div class="tab-pane fade" id="v-pills-form" role="tabpanel" aria-labelledby="v-pills-form-tab" tabindex="0">
             {% include "form.html" %}
           </div>
         </div>
-        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"
+        <div class="tab-pane fade show active" id="v-pills-omtd" role="tabpanel" aria-labelledby="v-pills-omtd-tab"
           tabindex="0">
-          ...
+          {% include "omtd.html" %}
         </div>
         <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"
           tabindex="0">
